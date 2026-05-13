@@ -109,6 +109,27 @@ public class Main{
             System.out.println(sum);
           }
 
+          //real life example
+          int ages[] = {20, 22, 18, 35, 48, 26, 87, 70};
+
+          float total = 0;
+          //find the length of the array
+          int length = ages.length;
+          System.out.println(length);
+
+          //summation
+          for(int age:ages){
+            total += age;
+          }
+          System.out.println(total);
+
+          //average
+
+          var average = sum/length;
+          System.out.println(average);
+
+
+
 
 
 
