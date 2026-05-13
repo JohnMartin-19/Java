@@ -3,7 +3,31 @@ public class Main{
 //        System.out.println("Hello John!. This is my first Java program since Uni.");
 //    }
 
+      //methods/functions in Java
+      static void myMethod(){
+        System.out.println("This is Java");
+      }
+
+      static void myName(String fname){
+        System.out.println(fname + "Mburu");
+      }
+
+      //methods with return values
+      static int myInt(int x, int y){
+        return x+y;
+      }
+
+      ///overloading( methods having same name but diff params)
+      static int plusMethod(int x, int y){
+        return x + y;
+      }
+
+      static double plusMethod(double x, double y){
+        return x + y;
+      }
+
       public static void main (String[] args) {
+        myName("Shanice Wanjiru");
         System.out.println("Niaje cutie. Na umeiva");
         System.out.println("Woow");
         String name = "John";
@@ -128,9 +152,16 @@ public class Main{
           var average = sum/length;
           System.out.println(average);
 
+          myMethod();
+          myName("John");
 
+          System.out.println(myInt(3, 9));
 
-
+          //calling the overloaded methods
+          var result1 = plusMethod(4, 5);
+          var result2 = plusMethod(4.5, 5.5);
+          System.out.println(result1);
+          System.out.println(result2);
 
 
 
