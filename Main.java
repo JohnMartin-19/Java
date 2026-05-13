@@ -26,6 +26,9 @@ public class Main{
         return x + y;
       }
 
+      //objects in OOP
+      int num = 28;
+
       public static void main (String[] args) {
         myName("Shanice Wanjiru");
         System.out.println("Niaje cutie. Na umeiva");
@@ -162,6 +165,10 @@ public class Main{
           var result2 = plusMethod(4.5, 5.5);
           System.out.println(result1);
           System.out.println(result2);
+
+          Main myObj = new Main();
+          System.out.println(myObj.num);
+
 
 
 
