@@ -1,5 +1,10 @@
 package Constructors;
 
+//for Access Identifiers
+class Person{
+    public String name = "Mburu";
+    private int age = 24;
+}
 
 public class Main{
 
@@ -35,6 +40,10 @@ public class Main{
         Main car2 = new Main(2024, "Mazda");
         car1.printInfo();
         car2.printInfo();
+
+        Person p = new Person();
+        System.out.println(p.name); // works fine
+        //System.out.println(p.age); //raises an error since its private
 
     }
 }
