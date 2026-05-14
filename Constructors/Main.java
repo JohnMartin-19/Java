@@ -13,7 +13,7 @@ public class Main{
     //     Main myObj = new Main(5);
     //     System.out.println(myObj.x);
     // }
-
+    //constructors with the "THIS" keyword
     int modelYear;
     String modelName;
 
