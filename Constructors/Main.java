@@ -4,6 +4,23 @@ package Constructors;
 class Person{
     public String name = "Mburu";
     private int age = 24;
+    private String location;
+
+    public static void main(String[] args) {
+        Person mtu = new Person();
+        System.out.println(mtu.age); 
+    }
+
+    //getter
+    public String getLocation(){
+        return location;
+    }
+
+    //setter
+    public void setLocation(String newLocation){
+        this.location = newLocation;
+    }
+    
 }
 
 public class Main{
@@ -44,6 +61,8 @@ public class Main{
         Person p = new Person();
         System.out.println(p.name); // works fine
         //System.out.println(p.age); //raises an error since its private
+
+
 
     }
 }
