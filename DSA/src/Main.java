@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.HashMap;
+import java.util.*;
+
 
 public class Main{
     public static void main(String[] args){
@@ -35,5 +34,25 @@ public class Main{
         magari.put("Toyota", "Lexus");
 
         System.out.println(magari);
+
+        //using Iterator for the looping (ArrayList)
+        //get an Iterator for an obj
+        Iterator<String> loop = myCars.iterator();
+
+        while(loop.hasNext()){
+            System.out.println(loop.next());
+        }
+
+        //list sorting (Array List)
+        Collections.sort(myCars);
+        for (String car:myCars){
+            System.out.println("Sorted Cars:" + car);
+        }
+        //reversed a sorted ArrayList
+        Collections.sort(myCars, Collections.reverseOrder());
     }
+
+
+
+
 }
