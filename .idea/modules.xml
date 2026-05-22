@@ -7,9 +7,11 @@
       <module fileurl="file://$PROJECT_DIR$/Enum/Enum.iml" filepath="$PROJECT_DIR$/Enum/Enum.iml" />
       <module fileurl="file://$PROJECT_DIR$/GradingSystem/GradingSystem.iml" filepath="$PROJECT_DIR$/GradingSystem/GradingSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/Polymorphism/Polymorphism.iml" filepath="$PROJECT_DIR$/Polymorphism/Polymorphism.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SchoolMngtSystem/SchoolMngtSystem.iml" filepath="$PROJECT_DIR$/SchoolMngtSystem/SchoolMngtSystem.iml" />
       <module fileurl="file://$PROJECT_DIR$/UserInput/UserInput.iml" filepath="$PROJECT_DIR$/UserInput/UserInput.iml" />
       <module fileurl="file://$PROJECT_DIR$/calculator/calculator.iml" filepath="$PROJECT_DIR$/calculator/calculator.iml" />
       <module fileurl="file://$PROJECT_DIR$/projects.iml" filepath="$PROJECT_DIR$/projects.iml" />
+      <module fileurl="file://$PROJECT_DIR$/EmployeeMngtSystem/untitled/untitled.iml" filepath="$PROJECT_DIR$/EmployeeMngtSystem/untitled/untitled.iml" />
     </modules>
   </component>
 </project>
