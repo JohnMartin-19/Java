@@ -5,7 +5,7 @@ public class Main{
         Department infoTech = new Department("Information Technology");
 
         //create teachers
-        Teacher t1 = new Teacher("Alice Wanjiru", 35, "alice@school.com", "T001", "Algorithms", 85000);
+        Teacher t1 = new Teacher("Anne Wanjiru", 35, "alice@school.com", "T001", "Algorithms", 85000);
         Teacher t2 = new Teacher("Bob Kamau", 42, "bob@school.com", "T002", "Databases", 90000);
 
         //create students
@@ -20,7 +20,7 @@ public class Main{
         infoTech.addTeacher(t1);
         infoTech.addTeacher(t2);
 
-        // Display everything
+        // display everything
         System.out.println("=== DEPARTMENT: " + infoTech.getDepartmentName() + " ===\n");
 
         System.out.println("--- TEACHERS ---");
