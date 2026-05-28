@@ -13,6 +13,7 @@ class Box<T> {
     }
 }
 public class Main{
+    //generic method: works with any Type <T>
     public static <T> void printArray(T[] array){
         for(T item: array){
             System.out.println(item);
