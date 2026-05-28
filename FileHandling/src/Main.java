@@ -102,7 +102,7 @@ public class Main {
             bw.newLine();
             bw.write("Second Line");
             System.out.println("Successfully written to the file");
-        } catch( IOException){
+        } catch( IOException e){
             System.out.println("Error raised");
         }
 
