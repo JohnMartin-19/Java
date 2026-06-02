@@ -10,6 +10,7 @@
       <module fileurl="file://$PROJECT_DIR$/FileHandling/FileHandling.iml" filepath="$PROJECT_DIR$/FileHandling/FileHandling.iml" />
       <module fileurl="file://$PROJECT_DIR$/Generics/Generics.iml" filepath="$PROJECT_DIR$/Generics/Generics.iml" />
       <module fileurl="file://$PROJECT_DIR$/GradingSystem/GradingSystem.iml" filepath="$PROJECT_DIR$/GradingSystem/GradingSystem.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JDBC/JDBC.iml" filepath="$PROJECT_DIR$/JDBC/JDBC.iml" />
       <module fileurl="file://$PROJECT_DIR$/Java_Streams_Lambdas/Java_Streams_Lambdas.iml" filepath="$PROJECT_DIR$/Java_Streams_Lambdas/Java_Streams_Lambdas.iml" />
       <module fileurl="file://$PROJECT_DIR$/Polymorphism/Polymorphism.iml" filepath="$PROJECT_DIR$/Polymorphism/Polymorphism.iml" />
       <module fileurl="file://$PROJECT_DIR$/SchoolMngtSystem/SchoolMngtSystem.iml" filepath="$PROJECT_DIR$/SchoolMngtSystem/SchoolMngtSystem.iml" />
