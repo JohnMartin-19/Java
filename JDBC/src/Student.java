@@ -35,6 +35,9 @@ class Student{
     public String getEmail(){
         return email;
     }
+    public int getAge(){
+        return age;
+    }
     public String getCourse(){
         return course;
     }

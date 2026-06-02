@@ -5,25 +5,24 @@ import java.util.Optional;
 
 public class StudentRepository{
     //insert
-    public void insert(String name, String email, int age, String course, double gpa) {
-        String sql = "INSERT INTO students (name, email, age, course, gpa) " +
-                "VALUES (?, ?, ?, ?, ?)";
+    public int insert(Student student) throws SQLException {
+        String sql = "INSERT INTO students (name, email, age, course, gpa) VALUES (?,?,?,?,?)";
 
         try (Connection conn = DatabaseConnection.getConnection();
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
-            stmt.setString(1, name);
-            stmt.setString(2, email);
-            stmt.setInt(3, age);
-            stmt.setString(4, course);
-            stmt.setDouble(5, gpa);
+            stmt.setString(1, student.getName());
+            stmt.setString(2, student.getEmail());
+            stmt.setInt(3, student.getAge());
+            stmt.setString(4, student.getCourse());
+            stmt.setDouble(5, student.getGpa());
+            stmt.executeUpdate();
 
-            int rowsAffected = stmt.executeUpdate();
-            System.out.println("Inserted " + rowsAffected + " row(s)");
+            ResultSet keys = stmt.getGeneratedKeys();
+            if (keys.next()) return keys.getInt(1);
 
-        } catch (SQLException e) {
-            System.err.println("Insert failed: " + e.getMessage());
         }
+        return -1;
     }
 
     //select by ID
@@ -36,16 +35,10 @@ public class StudentRepository{
             stmt.setInt(1, id);
             ResultSet rs = stmt.executeQuery();
 
-            if (rs.next()) {  // moves cursor to first row
-                return new Student(
-                        rs.getInt("id"),
-                        rs.getString("name"),
-                        rs.getString("email"),
-                        rs.getInt("age"),
-                        rs.getString("course"),
-                        rs.getDouble("gpa")
-                );
+            if (rs.next()) {
+                return Optional.of(mapRow(rs));  // wrap in Optional
             }
+            return Optional.empty();
 
         } catch (SQLException e) {
             System.err.println("Read failed: " + e.getMessage());
@@ -53,6 +46,16 @@ public class StudentRepository{
         return null;
     }
 
+    private Student mapRow(ResultSet rs) throws SQLException {
+        return new Student(
+                rs.getInt("id"),
+                rs.getString("name"),
+                rs.getString("email"),
+                rs.getInt("age"),
+                rs.getString("course"),
+                rs.getDouble("gpa")
+        );
+    }
     //read all
     public List<Student> findAll() {
         String sql = "SELECT * FROM students ORDER BY name";
@@ -78,9 +81,24 @@ public class StudentRepository{
         }
         return students;
     }
+    
+    //find by course
+    public List<Student> findByCourse(String course) throws SQLException {
+        String sql = "SELECT * FROM students WHERE course = ? ORDER BY gpa DESC";
+        List<Student> students = new ArrayList<>();
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, course);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) students.add(mapRow(rs));
+        }
+        return students;
+    }
 
     //update
-    public void update(int id, String newEmail, double newGpa) {
+    public boolean update(int id, String newEmail, double newGpa) {
         String sql = "UPDATE students SET email = ?, gpa = ? WHERE id = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -91,8 +109,10 @@ public class StudentRepository{
             stmt.setInt(3, id);
 
             int rowsAffected = stmt.executeUpdate();
+            return rowsAffected > 0;
             if (rowsAffected > 0) {
                 System.out.println("Student " + id + " updated");
+
             } else {
                 System.out.println("No student found with ID " + id);
             }
@@ -100,10 +120,11 @@ public class StudentRepository{
         } catch (SQLException e) {
             System.err.println("Update failed: " + e.getMessage());
         }
+
     }
 
     //delete
-    public void delete(int id) {
+    public boolean delete(int id) {
         String sql = "DELETE FROM students WHERE id = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -111,7 +132,7 @@ public class StudentRepository{
 
             stmt.setInt(1, id);
             int rowsAffected = stmt.executeUpdate();
-
+            return stmt.executeUpdate() > 0;
             if (rowsAffected > 0) {
                 System.out.println("Student " + id + " deleted");
             } else {
