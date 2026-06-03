@@ -43,7 +43,7 @@ public class StudentRepository{
         } catch (SQLException e) {
             System.err.println("Read failed: " + e.getMessage());
         }
-        return null;
+        return Optional.empty();
     }
 
     private Student mapRow(ResultSet rs) throws SQLException {
@@ -109,18 +109,19 @@ public class StudentRepository{
             stmt.setInt(3, id);
 
             int rowsAffected = stmt.executeUpdate();
-            return rowsAffected > 0;
+
             if (rowsAffected > 0) {
                 System.out.println("Student " + id + " updated");
 
             } else {
                 System.out.println("No student found with ID " + id);
             }
+            return rowsAffected > 0;
 
         } catch (SQLException e) {
             System.err.println("Update failed: " + e.getMessage());
         }
-
+        return false;
     }
 
     //delete
@@ -132,16 +133,18 @@ public class StudentRepository{
 
             stmt.setInt(1, id);
             int rowsAffected = stmt.executeUpdate();
-            return stmt.executeUpdate() > 0;
+
             if (rowsAffected > 0) {
                 System.out.println("Student " + id + " deleted");
             } else {
                 System.out.println("No student found with ID " + id);
             }
+            return stmt.executeUpdate() > 0;
 
         } catch (SQLException e) {
             System.err.println("Delete failed: " + e.getMessage());
         }
+        return false;
     }
 
 }

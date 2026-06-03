@@ -28,18 +28,23 @@ public class Calculator {
     }
 
 
-    public int divide(int a, int b){
-        return a/b;
+    public int divide(int a, int b) {
+        if (b == 0) throw new ArithmeticException("Cannot divide by zero");
+        return a / b;
     }
 
+
     public double divide(double a, double b) {
+        if (b == 0) throw new ArithmeticException("Cannot divide by zero");
         return a / b;
     }
 
     public int modulus(int a, int b){
-        return a%b;
+        if (b == 0) throw new ArithmeticException("Cannot use zero as modulus");
+        return a % b;
     }
     public double modulus (double a, double b){
-        return a%b;
+        if (b == 0) throw new ArithmeticException("Cannot use zero as modulus");
+        return a % b;
     }
 }
