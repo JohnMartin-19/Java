@@ -1,4 +1,4 @@
-package com.banking;
+package BankingFinal;
 
 public class Main{
     public static  void main(String[] args){
