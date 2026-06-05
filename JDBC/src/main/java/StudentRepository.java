@@ -26,7 +26,7 @@ public class StudentRepository{
     }
 
     //select by ID
-    public Optional<Student> findById(int id) {
+    public Optional<Student> findById(int id) throws SQLException {
         String sql = "SELECT * FROM students WHERE id = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
@@ -42,6 +42,7 @@ public class StudentRepository{
 
         } catch (SQLException e) {
             System.err.println("Read failed: " + e.getMessage());
+            //throw new SQLException("Database error", e.getMessage());
         }
         return Optional.empty();
     }
